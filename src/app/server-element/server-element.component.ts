@@ -7,9 +7,13 @@ import { Component, OnInit ,Input} from '@angular/core';
 })
 export class ServerElementComponent implements OnInit {
 @Input('ServeurElement') element : { type:string , name :string , content:string}
-  constructor() { }
+  constructor() { 
+    console.log('Constructor called')
+  }
 
   ngOnInit(): void {
+    console.log('Ngonit called called')
+
   }
 
 }
