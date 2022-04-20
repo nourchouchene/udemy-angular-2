@@ -23,5 +23,20 @@ export class AppComponent {
       name: BlueeventData.eventName,
       content: BlueeventData.eventcontent
     });
+
+    }
+
+    OnchangeFirst  (){
+
+this.serverElements[0].name = 'Changed' ;
+
+    }
+
+    OnDestroyElement(){
+this.serverElements.splice(0,1)
+
+
+    }
+
   }
-}
+
