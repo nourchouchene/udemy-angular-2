@@ -8,7 +8,10 @@ import { Component,
      AfterContentChecked,
      AfterViewInit,
      AfterViewChecked,
-     OnDestroy} from '@angular/core';
+     OnDestroy,
+     ElementRef,
+     ContentChild,
+     ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -22,13 +25,16 @@ export class ServerElementComponent implements OnInit, OnChanges , DoCheck ,Afte
   OnDestroy{
 @Input('ServeurElement') element : { type:string , name :string , content:string}
 @Input() name : string ;  
+@ContentChild('Content' , {static:true} ) Content : ElementRef
+@ViewChild('heading' , {static:true})   Heading : ElementRef ;
 constructor() { 
     console.log('Constructor called')
   }
 
   ngOnInit(): void {
     console.log('Ngonit called called')
-
+    console.log( 'HeadingContent :' + this.Heading.nativeElement.textContent)
+    console.log('Content is : ' + this.Content.nativeElement.textContent)
   }
   ngOnChanges(changes: SimpleChanges): void {
     
@@ -45,6 +51,7 @@ constructor() {
 
   ngAfterContentInit(): void {
     console.log("Aftercontentinit called !")
+
   }
 
   ngAfterContentChecked(): void {
@@ -56,12 +63,15 @@ constructor() {
   ngAfterViewInit(): void {
     
     console.log("AfterViewinit called !")
+    console.log( 'HeadingContent :' + this.Heading.nativeElement.textContent)
+    console.log('Content is : ' + this.Content.nativeElement.textContent)
 
   }
 
   ngAfterViewChecked(): void {
     
     console.log("AfterViewChecked called !")
+
 
   }
   ngOnDestroy(): void {

@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ContentChild, ElementRef, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
   serverElements = [{type  :'server' , name: 'servertest' , content : 'test' }];
-
   onServerCreation(eventData: { eventName:string , eventcontent: string}) {
     this.serverElements.push({
       type: 'server',
